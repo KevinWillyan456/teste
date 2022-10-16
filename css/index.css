@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif, Arial;
+}
+
+/* Apenas muda a cor do texto selecionado */
+*::selection {
+    background-color: #9b391b;
+    color: white;
+}
+body {
+    background-color: whitesmoke;
+}
+
+.title-item {
+    position: absolute;
+    top: 0;
+
+    color: #5a5a5a;
+    font-size: 18px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+/* Faz com que o elemento fique ao centro para ser mostrado */
+.section1 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.elemento {
+    animation: entrada-elemento 2s backwards 1s;
+    width: 200px;
+    height: 100px;
+    border: 3px solid black;
+    cursor: pointer;
+}
+@keyframes entrada-elemento {
+    0%{
+        opacity: 0;
+        transform: translateX(-50%)
+    }
+    50%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    75%{
+        box-shadow: 0px 5px 10px black;
+        transform: scale(1.5);
+    }
+}
+
+/* Transformação do elemento */
+.elemento.transformed {
+    transition: 500ms;
+    width: 200px;
+    height: 200px;
+    color: white;
+    background-image: linear-gradient(#3b5be6, #141e4d);
+    text-transform: uppercase;
+    filter: drop-shadow(0 0 5px blue);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+.info-elemento {
+    animation: entrada-info-elemento 500ms backwards 1s, entrada-info-elemento-exit 500ms forwards 5s;
+    position: absolute;
+    top: 25%;
+    font-size: 25px;
+    color: #5a5a5a;
+    background-color: white;
+    padding: 20px;
+}
+@keyframes entrada-info-elemento {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes entrada-info-elemento-exit {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+/* Removedor de quadrado */
+
+.removerQuadrado {
+    transition: all 200ms;
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-40px);
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    cursor: pointer;
+}
+.removerQuadrado:hover {
+    background-color: rgba(165, 42, 42, 0.5);
+}
+
+/* rotina 3 - Criador de cores */
+.criadorCores {
+    animation: criador-cores 5s infinite, criador-cores-entrada 2s;
+    background-size: 200%;
+    width: 200px;
+    background-image: linear-gradient(120deg,#2eff17,#0988DB, red);
+    height: 100px;
+    border-radius: 25px;
+    border: 3px solid black;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+@keyframes criador-cores {
+    0%{
+        background-position: 0% 0;
+    }
+    50%{
+        background-position: 100% 0;
+    }
+    100%{
+        background-position: 0% 0;
+    }
+}
+@keyframes criador-cores-entrada {
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Armazena as 10 cores */
+
+/* Se parecer meio confuso é porque não entendo muito de GRID */
+.section2 {
+    animation: section2-aparecer 1s;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background-image: linear-gradient(#e9e9e9, #b9b9b9);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+@keyframes section2-aparecer {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+/* Para o elemento aparecer apenas na hora das cores */
+.section2-esconder {
+    display: none;
+}
+.section2 .grupo {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.section2 .grupo div {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+
+/* =================== */
+/* Etapa Final */
+
+.conteiner-final {
+    animation: conteiner-final-aparecer 2s;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: radial-gradient(circle at 95.45% 104.17%, #736a98 0, #504b81 25%, #262d69 50%, #001352 75%, #00003e 100%);
+
+    /* Centralizados */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+    z-index: 1000;
+}
+@keyframes conteiner-final-aparecer {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.conteiner-final-nome {
+    animation: conteiner-final-texto 2s infinite alternate;
+    font-size: 100px;
+    color: white;
+    text-shadow: 0 0 10px black,
+    0 0 10px black,
+    0 0 10px black;
+}
+.conteiner-final-turma {
+    animation: conteiner-final-texto 2s 500ms infinite alternate;
+    font-size: 100px;
+    color: white;
+    text-shadow: 0 0 10px black,
+    0 0 10px black,
+    0 0 10px black;
+}
+@keyframes conteiner-final-texto {
+    0%{
+        text-shadow: 0 0 10px black,
+        0 0 10px black,
+        0 0 10px black;
+    }
+    100%{
+        text-shadow: 0 0 10px white,
+        0 0 30px white,
+        0 0 50px white;
+    }
+}
